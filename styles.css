@@ -1,0 +1,141 @@
+/* ===== RESET GLOBAL DE ESTILOS ===== */
+/* Remove margens e paddings padrão de todos os elementos para ter controle total */
+*{
+    margin: 0;              /* Remove margem externa padrão */
+    padding: 0;             /* Remove espaço interno padrão */
+    box-sizing: border-box; /* Inclui padding e border no cálculo do tamanho total */
+}
+
+/* ===== CONTAINER PRINCIPAL DO JOGO ===== */
+.game{
+    width: 100%;                           /* Ocupa toda a largura disponível */
+    height: 100vh;                         /* Ocupa toda a altura da viewport (100% da janela) */
+    border-bottom: 30px solid green;       /* Adiciona uma borda verde na base (simula o chão) */
+    margin: 0 auto;                        /* Centraliza o container */
+    position: relative;                    /* Define como referência para posicionamento absoluto de filhos */
+    overflow: hidden;                      /* Oculta qualquer conteúdo que ultrapassar as bordas */
+    background: linear-gradient(#87CEEB, #E0F6FF); /* Gradiente azul para simular céu (azul escuro para claro) */
+}
+
+/* ===== ESTILOS PARA BOTÕES ===== */
+button {
+    background: green;          /* Cor de fundo verde */
+    color: white;               /* Cor do texto branca */
+    font-weight: bold;          /* Texto em negrito */
+    font-size: 1.5rem;          /* Tamanho da fonte aumentado */
+    border: none;               /* Sem borda */
+    padding: 1rem;              /* Espaço interno (preenchimento) */
+    position: absolute;         /* Posicionamento absoluto relativo ao container pai */
+    right: 50vw;                /* 50% da largura da viewport da direita (centraliza horizontalmente) */
+    top: 50vh;                  /* 50% da altura da viewport do topo (centraliza verticalmente) */
+    cursor: pointer;            /* Muda o cursor para indicar que é clicável */
+    z-index: 1;                 /* Define o nível de profundidade (fica acima de outros elementos) */
+}
+/* ===== EFEITO HOVER DO BOTÃO ===== */
+button:hover {
+    border: 2px solid green;    /* Adiciona borda verde quando o mouse passa sobre */
+    background: none;           /* Remove o fundo quando o mouse passa sobre */
+    color: green;               /* Muda a cor do texto para verde */
+}
+
+/* ===== CONTAINER DA TELA DE GAME OVER ===== */
+.game-over {
+    width: 100%;                      /* Ocupa toda a largura */
+    height: 100vh;                    /* Ocupa toda a altura da viewport */
+    background: rgba(0, 0, 0, 0.322); /* Fundo preto semi-transparente para escurecer a tela */
+    display: none;                    /* Inicialement oculto (aparece só quando há colisão) */
+    align-items: center;              /* Centraliza verticalmente usando flexbox */
+    justify-content: center;          /* Centraliza horizontalmente usando flexbox */
+    flex-direction: column;           /* Organiza os filhos em coluna (um em cima do outro) */
+    position: fixed;                  /* Posicionamento fixo na viewport (não rola com a página) */
+    top: 0;                           /* Alinhado ao topo */
+    left: 0;                          /* Alinhado à esquerda */
+}
+/* ===== TÍTULO DA TELA DE GAME OVER ===== */
+.game-over h1 {
+    font-size: 3rem;          /* Tamanho grande do texto */
+    color: red;               /* Texto em vermelho indicando fim do jogo */
+    text-align: center;       /* Centraliza o texto */
+    margin-top: 15rem;        /* Espaço superior para afastar do topo */
+}
+
+/* ===== ESTILOS DO CANO (OBSTÁCULO) ===== */
+.pipe {
+    position: absolute;  /* Posicionamento absoluto para movimento livre */
+    bottom: 0;          /* Alinhado na base (no "chão") */
+    right: -80px;       /* Posicionado fora da tela à direita */
+    width: 80px;        /* Largura do cano */
+}
+
+/* ===== ESTILOS DO MARIO ===== */
+.mario{
+    width: 150px;       /* Largura do personagem */
+    position: absolute; /* Posicionamento absoluto para controlar sua posição */
+    bottom: 0;          /* Alinhado na base (no "chão") */
+}
+
+/* ===== ESTILOS DAS NUVENS (DECORAÇÃO) ===== */
+.clouds {
+    width: 550px;                              /* Largura das nuvens */
+    position: absolute;                        /* Posicionamento absoluto */
+    top: 0;                                    /* Alinhado ao topo */
+    animation: clouds-animation 20s infinite linear; /* Aplica animação de movimento das nuvens */
+}
+
+/* ===== ANIMAÇÃO DAS NUVENS ===== */
+/* Define como as nuvens se movem de direita para esquerda */
+@keyframes clouds-animation {
+    from {
+        right: -550px;  /* Começa fora da tela à direita */
+    }
+    to {
+        right: 100%;    /* Termina saindo da tela à esquerda */
+    }
+}
+
+/* ===== CLASSE QUE ATIVA A ANIMAÇÃO DO CANO ===== */
+.pipe-animation {
+    animation: pipe-animation 2s infinite linear; /* Executa a animação a cada 2 segundos, infinitamente */
+}
+
+/* ===== ANIMAÇÃO DO CANO ===== */
+/* Define como o cano se move da direita para a esquerda */
+@keyframes pipe-animation {
+    from {
+        right: -80px;   /* Começa fora da tela à direita */
+    }
+    to {
+        right: 100%;    /* Termina saindo da tela à esquerda */
+    }
+}
+
+/* ===== CLASSE QUE ATIVA A ANIMAÇÃO DE PULO ===== */
+.jump {
+    animation: jump 800ms ease-out; /* Executa a animação de pulo durante 800 milissegundos */
+}
+
+/* ===== ANIMAÇÃO DE PULO ===== */
+/* Nota: Esta animação não está definida neste arquivo, deve estar definida em outro lugar */
+/* Geralmente é definida usando transform: translateY() para mover o Mario para cima e depois para baixo */
+
+@keyframes jump {
+    0% {
+        bottom:0;
+    }
+
+    40% {
+        bottom: 200px;
+    }
+
+    50% {
+        bottom: 200px;
+    }
+
+    60% {
+        bottom: 200px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}

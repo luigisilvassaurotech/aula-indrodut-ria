@@ -1,15 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<!-- Elemento raiz com idioma em português -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+ <!-- Seção de cabeçalho contendo metadados e configurações -->
+ <meta charset="UTF-8">
+ <!-- Define a codificação de caracteres como UTF-8 -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Importa o arquivo de estilos CSS -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Configuração de compatibilidade com navegadores antigos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Configura o viewport para responsividade em dispositivos móveis -->
+  <title>Jogo do Mario/Dino</title>
+  <!-- Título da página exibido na aba do navegador -->
 </head>
 <body>
-    <div>
-    <img class="mario" src="img/mario.gif" alt="gif do mario correndo">
-    <img class="clouds" src="img/clouds.png" alt="nuvem do jogo super mario">
-    <img class="pipe" src="img/pipe.png" alt="cano do jogo super mario">
+<!-- Elemento corpo contendo o conteúdo principal -->
+   <div class="game">
+   <!-- Container principal do jogo -->
+    <img class="mario" src="img/mario.gif" alt="mario">
+    <!-- Imagem do personagem Mario com animação GIF -->
+    <img class="pipe" src="img/pipe.png" alt="cano">
+    <!-- Imagem do cano que se move na tela (obstáculo) -->
+    <img class="clouds" src="img/clouds.png" alt="nuvem">
+    <!-- Imagem das nuvens que se movem de forma decorativa -->
+    <button class="start">Iniciar</button>
+    <!-- Botão para começar o jogo -->
+   </div>
+
+    <div class="game-over">
+    <!-- Container que aparece quando o jogador bate no cano -->
+    <h1>Game Over</h1>
+    <!-- Título exibido quando o jogo termina -->
+    <button class="restart">Reiniciar</button>
+    <!-- Botão para reiniciar o jogo -->
     </div>
 </body>
+<!-- Fim do corpo da página -->
+<script src="main.js"></script>
+<!-- Importa o arquivo JavaScript que contém a lógica do jogo -->
 </html>
